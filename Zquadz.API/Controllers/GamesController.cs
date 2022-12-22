@@ -3,22 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 namespace Zquadz.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("api/Games")]
+    public class GamesController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<GamesController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public GamesController(ILogger<GamesController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
