@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Zquadz.Contracts.Games;
+using Zquadz.Services.Games;
 
 namespace Zquadz.API.Controllers
 {
@@ -11,23 +13,26 @@ namespace Zquadz.API.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<GamesController> _logger;
+        private readonly ILogger<GamesController> logger;
+        private readonly IGamesService gamesService;
 
-        public GamesController(ILogger<GamesController> logger)
+        public GamesController(
+            ILogger<GamesController> logger,
+            IGamesService gamesService)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.gamesService = gamesService;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [Route("All")]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [ProducesResponseType(typeof(GetGamesResponse), 200)]
+        public async Task<ActionResult> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var response = await this.gamesService.GetGamesResponse();
+            return Ok(response);
         }
     }
 }

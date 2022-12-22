@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zquadz.API", "Zquadz.API\Zq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Contracts", "Zquadz.Contracts\Zquadz.Contracts.csproj", "{570EE8F4-6A3F-481F-8A41-67769688CB4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Services", "Zquadz.Services\Zquadz.Services.csproj", "{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{570EE8F4-6A3F-481F-8A41-67769688CB4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{570EE8F4-6A3F-481F-8A41-67769688CB4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{570EE8F4-6A3F-481F-8A41-67769688CB4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

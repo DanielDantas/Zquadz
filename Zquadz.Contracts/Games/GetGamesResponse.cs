@@ -7,7 +7,7 @@ using Zquadz.Contracts.Games.Base;
 
 namespace Zquadz.Contracts.Games
 {
-    internal class GetGamesResponse
+    public class GetGamesResponse
     {
         public List<GameDetails> Games { get; set; }
         public GetGamesResponse(List<GameDetails> games) {

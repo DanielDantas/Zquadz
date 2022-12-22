@@ -7,7 +7,7 @@ using Zquadz.Contracts.Address;
 
 namespace Zquadz.Contracts.Games.Base
 {
-    internal class GameDetails
+    public class GameDetails
     {
         public string Name { get; set; }
         public string Description { get; set; }
