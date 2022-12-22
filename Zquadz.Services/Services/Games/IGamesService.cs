@@ -1,9 +1,9 @@
 ﻿using Zquadz.Contracts.Games;
 
-namespace Zquadz.Services.Games
+namespace Zquadz.Application.Services.Games
 {
     public interface IGamesService
     {
-        Task<GetGamesResponse> GetGamesResponse();
+        Task<GetGamesResponse> GetAll();
     }
 }

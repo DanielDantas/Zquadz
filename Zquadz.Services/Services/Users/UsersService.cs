@@ -1,16 +1,17 @@
 ﻿using Microsoft.Extensions.Logging;
 using Zquadz.Contracts.Games;
 
-namespace Zquadz.Services.Games
+namespace Zquadz.Application.Services.Users
 {
-    public class GamesService: IGamesService
+    public class UsersService : IUsersService
     {
         private readonly ILogger logger;
-        public GamesService(ILogger<GamesService> logger) { 
+        public UsersService(ILogger<UsersService> logger)
+        {
             this.logger = logger;
         }
 
-        public Task<GetGamesResponse> GetGamesResponse()
+        public Task<GetGamesResponse> GetAll()
         {
             throw new NotImplementedException();
         }

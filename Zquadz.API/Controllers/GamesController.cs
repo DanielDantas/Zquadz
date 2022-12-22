@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Zquadz.Application.Services.Games;
 using Zquadz.Contracts.Games;
-using Zquadz.Services.Games;
 
 namespace Zquadz.API.Controllers
 {
@@ -8,11 +8,6 @@ namespace Zquadz.API.Controllers
     [Route("api/Games")]
     public class GamesController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<GamesController> logger;
         private readonly IGamesService gamesService;
 
@@ -29,9 +24,9 @@ namespace Zquadz.API.Controllers
         [Produces("application/json")]
         [Consumes("application/json")]
         [ProducesResponseType(typeof(GetGamesResponse), 200)]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> GetAll()
         {
-            var response = await this.gamesService.GetGamesResponse();
+            var response = await this.gamesService.GetAll();
             return Ok(response);
         }
     }

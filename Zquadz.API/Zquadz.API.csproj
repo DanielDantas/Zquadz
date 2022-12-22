@@ -13,7 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Zquadz.Contracts\Zquadz.Contracts.csproj" />
-    <ProjectReference Include="..\Zquadz.Services\Zquadz.Services.csproj" />
+    <ProjectReference Include="..\Zquadz.Infrastructure\Zquadz.Infrastructure.csproj" />
+    <ProjectReference Include="..\Zquadz.Services\Zquadz.Application.csproj" />
   </ItemGroup>
 
 </Project>
