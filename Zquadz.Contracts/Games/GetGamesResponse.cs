@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zquadz.Contracts.Games.Base;
+﻿using Zquadz.Contracts.Games.Base;
 
 namespace Zquadz.Contracts.Games
 {
