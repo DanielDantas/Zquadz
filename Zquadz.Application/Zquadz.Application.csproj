@@ -13,6 +13,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Zquadz.Contracts\Zquadz.Contracts.csproj" />
+    <ProjectReference Include="..\Zquadz.Domain\Zquadz.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Interfaces\Services\" />
   </ItemGroup>
 
 </Project>

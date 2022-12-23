@@ -5,11 +5,13 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zquadz.API", "Zquadz.API\Zquadz.API.csproj", "{A1BB56BA-9D8C-4970-9034-770A8A51C8D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Contracts", "Zquadz.Contracts\Zquadz.Contracts.csproj", "{570EE8F4-6A3F-481F-8A41-67769688CB4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zquadz.Contracts", "Zquadz.Contracts\Zquadz.Contracts.csproj", "{570EE8F4-6A3F-481F-8A41-67769688CB4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Application", "Zquadz.Services\Zquadz.Application.csproj", "{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zquadz.Application", "Zquadz.Application\Zquadz.Application.csproj", "{7C6B78B0-6016-4A7F-A4FF-DFD3BFD37511}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Infrastructure", "Zquadz.Infrastructure\Zquadz.Infrastructure.csproj", "{025456B7-3E86-433F-8F51-222CF7039C0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zquadz.Infrastructure", "Zquadz.Infrastructure\Zquadz.Infrastructure.csproj", "{025456B7-3E86-433F-8F51-222CF7039C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zquadz.Domain", "Zquadz.Domain\Zquadz.Domain.csproj", "{0F371E51-10B8-44F7-89FB-F05424FEF19F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{025456B7-3E86-433F-8F51-222CF7039C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{025456B7-3E86-433F-8F51-222CF7039C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{025456B7-3E86-433F-8F51-222CF7039C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F371E51-10B8-44F7-89FB-F05424FEF19F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F371E51-10B8-44F7-89FB-F05424FEF19F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F371E51-10B8-44F7-89FB-F05424FEF19F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F371E51-10B8-44F7-89FB-F05424FEF19F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
