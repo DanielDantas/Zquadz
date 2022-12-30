@@ -21,6 +21,7 @@ namespace Zquadz.Infrastructure.Persistance
         public async Task<User> Create(User user)
         {
             this.context.Users?.Add(user);
+            this.context.Users?.Add(user);
             await this.context.SaveChangesAsync();
             return await this.GetById(user.Id);
         }

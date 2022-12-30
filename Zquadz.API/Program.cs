@@ -1,12 +1,14 @@
 using Zquadz.Application;
 using Zquadz.Infrastructure;
+using Zquadz.Infrastructure.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 {
     // Add application services to the container.
     builder.Services.AddApplication();
     // Add infrastructure services to the container.
-    builder.Services.AddInfrastructure();
+    var cosmosSettings = builder.Configuration.GetSection("CosmosSettings").Get<CosmosSettings>();
+    builder.Services.AddInfrastructure(cosmosSettings);
 
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
