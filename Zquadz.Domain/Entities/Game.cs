@@ -1,4 +1,6 @@
-﻿namespace Zquadz.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Zquadz.Domain.Entities
 {
     public class Game
     {
@@ -16,6 +18,7 @@
         public DateTimeOffset StartTime { get; set; }
         public DateTimeOffset EndTime { get; set; }
         public short NumberOfPlayersLimit { get; set; }
+        [NotMapped]
         public IEnumerable<Guid> Players { get; set; } = Enumerable.Empty<Guid>();
         public Address Address { get; set; } = null!;
         public double Longitude = 0!;

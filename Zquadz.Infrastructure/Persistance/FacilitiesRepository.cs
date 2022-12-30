@@ -5,25 +5,25 @@ using Zquadz.Infrastructure.DbContexts;
 
 namespace Zquadz.Infrastructure.Persistance
 {
-    public class GamesRepository: IGamesRepository
+    public class FacilitiesRepository : IFacilitiesRepository
     {
         private readonly ZquadzContext context;
-        public GamesRepository(ZquadzContext context)
+        public FacilitiesRepository(ZquadzContext context)
         {
             this.context = context;
         }
-        public async Task<Game> GetById(Guid id)
+        public async Task<Facility> GetById(Guid id)
         {
-            return await this.context.Games?
+            return await this.context.Facilities?
                 .WithPartitionKey(id.ToString())
                 .SingleOrDefaultAsync(d => d.Id == id);
         }
 
-        public async Task<Game> Create(Game user)
+        public async Task<Facility> Create(Facility facility)
         {
-            this.context.Games?.Add(user);
+            this.context.Facilities?.Add(facility);
             await this.context.SaveChangesAsync();
-            return await this.GetById(user.Id);
+            return await this.GetById(facility.Id);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Zquadz.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Zquadz.Domain.Entities
 {
     public class Facility
     {
@@ -14,6 +16,7 @@
         public Address Address { get; set; } = null!;
         public double Longitude = 0!;
         public double Latitude = 0!;
+        [NotMapped]
         public IEnumerable<Guid> Administrators { get; set; } = Enumerable.Empty<Guid>();
     }
 }

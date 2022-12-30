@@ -1,19 +1,38 @@
 ﻿using Microsoft.Extensions.Logging;
-using Zquadz.Contracts.Games;
+using Zquadz.Application.Common.Interfaces.Persistance;
+using Zquadz.Contracts.Users;
 
 namespace Zquadz.Application.Services.Users
 {
     public class UsersService : IUsersService
     {
-        private readonly ILogger logger;
-        public UsersService(ILogger<UsersService> logger)
+        private readonly ILogger<UsersService> logger;
+        private readonly IUsersRepository usersRepository;
+        public UsersService(
+            ILogger<UsersService> logger,
+            IUsersRepository usersRepository)
         {
             this.logger = logger;
+            this.usersRepository = usersRepository;
         }
 
-        public Task<GetGamesResponse> GetAll()
+        public Task<GetUsersResponse> GetAll()
         {
             throw new NotImplementedException();
         }
+        public async Task<GetUserResponse> GetById(Guid id)
+        {
+            var user = await this.usersRepository.GetById(id);
+            if (user is null)
+            {
+                throw new ArgumentException("User not found");
+            }
+            return new GetUserResponse
+            {
+                Id = user.Id,
+                Name = $"{user.FirstName} {user.LastName}"
+            };
+        }
+
     }
 }

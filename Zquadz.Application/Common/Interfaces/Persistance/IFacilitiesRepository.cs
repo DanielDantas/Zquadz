@@ -7,9 +7,9 @@ using Zquadz.Domain.Entities;
 
 namespace Zquadz.Application.Common.Interfaces.Persistance
 {
-    public interface IUsersRepository
+    public interface IFacilitiesRepository
     {
-        Task<User> GetById(Guid id);
-        Task<User> Create(User user);
+        Task<Facility> GetById(Guid id);
+        Task<Facility> Create(Facility facility);
     }
 }
