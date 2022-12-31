@@ -9,7 +9,7 @@ namespace Zquadz.Application.Common.Interfaces.Persistance
 {
     public interface IUsersRepository
     {
-        Task<User> GetById(Guid id);
+        Task<User?> GetById(Guid id);
         Task<User> Create(User user);
     }
 }

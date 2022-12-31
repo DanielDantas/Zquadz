@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Cosmos.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Zquadz.Application.Common.Interfaces.Persistance;
 using Zquadz.Infrastructure.Settings;
@@ -8,20 +7,17 @@ using Zquadz.Infrastructure.Persistance;
 
 namespace Zquadz.Infrastructure
 {
-    public static class DependencyInjection
+    public static class Injector
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, CosmosSettings cosmosSettings)
         {
-            services.AddDbContext<ZquadzContext>((DbContextOptionsBuilder opts) =>
-            {
-                opts.UseCosmos(
+            _ = services.AddDbContext<ZquadzContext>((DbContextOptionsBuilder opts) => _ = opts.UseCosmos(
                        cosmosSettings.EndPoint,
                        cosmosSettings.AccessKey,
-                       cosmosSettings.DatabaseName);
-            });
-            services.AddTransient<IUsersRepository, UsersRepository>();
-            services.AddTransient<IGamesRepository, GamesRepository>();
-            services.AddTransient<IFacilitiesRepository, FacilitiesRepository>();
+                       cosmosSettings.DatabaseName));
+            _ = services.AddTransient<IUsersRepository, UsersRepository>();
+            _ = services.AddTransient<IGamesRepository, GamesRepository>();
+            _ = services.AddTransient<IFacilitiesRepository, FacilitiesRepository>();
             return services;
         }
     }

@@ -14,8 +14,6 @@ namespace Zquadz.Domain.Entities
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset LastUpdated { get; set; }
         public Address Address { get; set; } = null!;
-        public double Longitude = 0!;
-        public double Latitude = 0!;
         [NotMapped]
         public IEnumerable<Guid> Administrators { get; set; } = Enumerable.Empty<Guid>();
     }

@@ -22,7 +22,7 @@ namespace Zquadz.Application.Services.Users
         }
         public async Task<GetUserResponse> GetById(Guid id)
         {
-            var user = await this.usersRepository.GetById(id);
+            Domain.Entities.User? user = await this.usersRepository.GetById(id).ConfigureAwait(false);
             if (user is null)
             {
                 throw new ArgumentException("User not found");

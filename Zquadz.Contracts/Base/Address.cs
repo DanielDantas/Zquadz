@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Zquadz.Contracts.Address
+﻿namespace Zquadz.Contracts.Base
 {
     public class Address
     {
@@ -15,11 +9,11 @@ namespace Zquadz.Contracts.Address
         public string ZipCode { get; set; }
         public Address(string street, string city, string state, string country, string zipCode)
         {
-            this.Street = street;
-            this.City = city;
-            this.State = state;
-            this.Country = country;
-            this.ZipCode = zipCode;
+            Street = street;
+            City = city;
+            State = state;
+            Country = country;
+            ZipCode = zipCode;
         }
     }
 }

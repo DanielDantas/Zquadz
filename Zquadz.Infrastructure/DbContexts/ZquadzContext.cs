@@ -5,31 +5,31 @@ namespace Zquadz.Infrastructure.DbContexts
 {
     public class ZquadzContext : DbContext
     {
-        public ZquadzContext()
-        {
-
-        }
         public ZquadzContext(DbContextOptions<ZquadzContext> options)
       : base(options)
         { }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Facility> Facilities { get; set; }
-        public DbSet<Game> Games { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Facility> Facilities { get; set; } = null!;
+        public DbSet<Game> Games { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
+            if (modelBuilder is null)
+            {
+                throw new ArgumentNullException(nameof(modelBuilder));
+            }
+            _ = modelBuilder.Entity<User>()
                 .HasNoDiscriminator()
                 .ToContainer("Users")
                 .HasPartitionKey(user => user.Id);
 
-            modelBuilder.Entity<Facility>()
+            _ = modelBuilder.Entity<Facility>()
                 .HasNoDiscriminator()
                 .ToContainer("Facilities")
                 .HasPartitionKey(facility => facility.Id);
 
-            modelBuilder.Entity<Game>()
+            _ = modelBuilder.Entity<Game>()
                 .HasNoDiscriminator()
                 .ToContainer("Games")
                 .HasPartitionKey(game => game.FacilityId);

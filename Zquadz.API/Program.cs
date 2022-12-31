@@ -2,29 +2,32 @@ using Zquadz.Application;
 using Zquadz.Infrastructure;
 using Zquadz.Infrastructure.Settings;
 
-var builder = WebApplication.CreateBuilder(args);
+// CA1852 Type 'Program' can be sealed because it has no subtypes in its containing assembly and is not externally visible
+#pragma warning disable CA1852
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
     // Add application services to the container.
-    builder.Services.AddApplication();
+    _ = builder.Services.AddApplication();
     // Add infrastructure services to the container.
-    var cosmosSettings = builder.Configuration.GetSection("CosmosSettings").Get<CosmosSettings>();
-    builder.Services.AddInfrastructure(cosmosSettings);
+    CosmosSettings? cosmosSettings = builder.Configuration.GetSection("CosmosSettings").Get<CosmosSettings>();
+    if (cosmosSettings != null )
+        _ = builder.Services.AddInfrastructure(cosmosSettings);
 
-    builder.Services.AddControllers();
+    _ = builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    _ = builder.Services.AddEndpointsApiExplorer();
+    _ = builder.Services.AddSwaggerGen();
 }
-var app = builder.Build();
+WebApplication app = builder.Build();
 {
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
+        _ = app.UseSwagger();
+        _ = app.UseSwaggerUI();
     }
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
-    app.MapControllers();
+    _ = app.UseHttpsRedirection();
+    _ = app.UseAuthorization();
+    _ = app.MapControllers();
     app.Run();
 }

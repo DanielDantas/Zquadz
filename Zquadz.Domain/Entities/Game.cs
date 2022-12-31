@@ -21,7 +21,5 @@ namespace Zquadz.Domain.Entities
         [NotMapped]
         public IEnumerable<Guid> Players { get; set; } = Enumerable.Empty<Guid>();
         public Address Address { get; set; } = null!;
-        public double Longitude = 0!;
-        public double Latitude = 0!;
     }
 }

@@ -6,6 +6,6 @@ namespace Zquadz.Application.Services.Users
     public interface IUsersService
     {
         Task<GetUsersResponse> GetAll();
-        Task<GetUserResponse> GetById(Guid Id);
+        Task<GetUserResponse> GetById(Guid id);
     }
 }

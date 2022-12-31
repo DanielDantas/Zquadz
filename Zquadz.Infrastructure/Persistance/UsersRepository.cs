@@ -11,19 +11,23 @@ namespace Zquadz.Infrastructure.Persistance
         public UsersRepository(ZquadzContext context) {
             this.context = context;
         }
-        public async Task<User> GetById(Guid id)
+        public async Task<User?> GetById(Guid id)
         {
-            return await this.context.Users?
+            return await this.context.Users
                 .WithPartitionKey(id.ToString())
-                .SingleOrDefaultAsync(d => d.Id == id);
+                .SingleOrDefaultAsync(d => d.Id == id).ConfigureAwait(false);
         }
 
         public async Task<User> Create(User user)
         {
-            this.context.Users?.Add(user);
-            this.context.Users?.Add(user);
-            await this.context.SaveChangesAsync();
-            return await this.GetById(user.Id);
+            if (user is null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            _ = this.context.Users?.Add(user);
+            _ = await this.context.SaveChangesAsync().ConfigureAwait(false);
+            return user;
         }
     }
 }

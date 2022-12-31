@@ -26,7 +26,7 @@ namespace Zquadz.API.Controllers
         [ProducesResponseType(typeof(GetUserResponse), 200)]
         public async Task<ActionResult> GetById(Guid id)
         {
-            var response = await this.usersService.GetById(id);
+            var response = await this.usersService.GetById(id).ConfigureAwait(false);
             return Ok(response);
         }
     }

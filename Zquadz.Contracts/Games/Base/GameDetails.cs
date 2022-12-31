@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zquadz.Contracts.Address;
+using Zquadz.Contracts.Base;
 
 namespace Zquadz.Contracts.Games.Base
 {
@@ -14,21 +14,21 @@ namespace Zquadz.Contracts.Games.Base
         public string Type { get; set; }
         public DateTimeOffset StartDate { get; set; }
         public DateTimeOffset EndDate { get; set; }
-        public Address.Address Address { get; set; }
+        public Address Address { get; set; }
         public GameDetails(
             string name,
             string description,
             string type,
             DateTimeOffset startDate,
             DateTimeOffset endDate,
-            Address.Address address
+            Address address
         ) {
-            this.Name = name;
-            this.Description = description;
-            this.Type = type;
-            this.StartDate = startDate;
-            this.EndDate = endDate;
-            this.Address = address;
+            Name = name;
+            Description = description;
+            Type = type;
+            StartDate = startDate;
+            EndDate = endDate;
+            Address = address;
         }
     }
 }

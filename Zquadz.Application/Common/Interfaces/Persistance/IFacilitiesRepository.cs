@@ -9,7 +9,7 @@ namespace Zquadz.Application.Common.Interfaces.Persistance
 {
     public interface IFacilitiesRepository
     {
-        Task<Facility> GetById(Guid id);
+        Task<Facility?> GetById(Guid id);
         Task<Facility> Create(Facility facility);
     }
 }

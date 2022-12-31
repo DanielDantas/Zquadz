@@ -26,7 +26,7 @@ namespace Zquadz.API.Controllers
         [ProducesResponseType(typeof(GetGamesResponse), 200)]
         public async Task<ActionResult> GetAll()
         {
-            var response = await this.gamesService.GetAll();
+            var response = await this.gamesService.GetAll().ConfigureAwait(false);
             return Ok(response);
         }
     }

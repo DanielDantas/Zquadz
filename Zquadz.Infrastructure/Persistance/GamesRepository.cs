@@ -12,18 +12,23 @@ namespace Zquadz.Infrastructure.Persistance
         {
             this.context = context;
         }
-        public async Task<Game> GetById(Guid id)
+        public async Task<Game?> GetById(Guid id)
         {
-            return await this.context.Games?
+            return await this.context.Games
                 .WithPartitionKey(id.ToString())
-                .SingleOrDefaultAsync(d => d.Id == id);
+                .SingleOrDefaultAsync(d => d.Id == id).ConfigureAwait(false);
         }
 
-        public async Task<Game> Create(Game user)
+        public async Task<Game> Create(Game game)
         {
-            this.context.Games?.Add(user);
-            await this.context.SaveChangesAsync();
-            return await this.GetById(user.Id);
+            if (game is null)
+            {
+                throw new ArgumentNullException(nameof(game));
+            }
+
+            _ = (this.context.Games?.Add(game));
+            _ = await this.context.SaveChangesAsync().ConfigureAwait(false);
+            return game;
         }
     }
 }

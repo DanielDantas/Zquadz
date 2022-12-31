@@ -9,7 +9,7 @@ namespace Zquadz.Application.Common.Interfaces.Persistance
 {
     public interface IGamesRepository
     {
-        Task<Game> GetById(Guid id);
+        Task<Game?> GetById(Guid id);
         Task<Game> Create(Game game);
     }
 }
