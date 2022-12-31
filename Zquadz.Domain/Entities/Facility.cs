@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.Azure.Cosmos.Spatial;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zquadz.Domain.Entities
 {
@@ -14,6 +15,7 @@ namespace Zquadz.Domain.Entities
         public DateTimeOffset CreatedOn { get; set; }
         public DateTimeOffset LastUpdated { get; set; }
         public Address Address { get; set; } = null!;
+        public Point Location { get; set; } = null!;
         [NotMapped]
         public IEnumerable<Guid> Administrators { get; set; } = Enumerable.Empty<Guid>();
     }

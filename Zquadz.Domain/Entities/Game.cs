@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.Azure.Cosmos.Spatial;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zquadz.Domain.Entities
 {
@@ -21,5 +22,6 @@ namespace Zquadz.Domain.Entities
         [NotMapped]
         public IEnumerable<Guid> Players { get; set; } = Enumerable.Empty<Guid>();
         public Address Address { get; set; } = null!;
+        public Point Location { get; set; } = null!;
     }
 }

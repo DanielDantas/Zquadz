@@ -25,7 +25,7 @@ namespace Zquadz.Application.Services.Users
             Domain.Entities.User? user = await this.usersRepository.GetById(id).ConfigureAwait(false);
             if (user is null)
             {
-                throw new ArgumentException("User not found");
+                throw new KeyNotFoundException("User not found");
             }
             return new GetUserResponse
             {
@@ -33,6 +33,5 @@ namespace Zquadz.Application.Services.Users
                 Name = $"{user.FirstName} {user.LastName}"
             };
         }
-
     }
 }
